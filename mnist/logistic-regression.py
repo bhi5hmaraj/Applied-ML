@@ -96,8 +96,9 @@ def train_test_split(num=5):
 
 def check_accuracy(X, y, weights, thresh=0.5):
 	pred = predict(weights, X)
-	pred[pred >= thresh] = 1
-	pred[pred <  thresh] = 0
+	# pred[pred >= thresh] = 1
+	# pred[pred <  thresh] = 0
+	pred = pred >= thresh	# need to check this !!
 	return sum(np.logical_not(np.logical_xor(pred, y))) / len(y)
 
 def main():
